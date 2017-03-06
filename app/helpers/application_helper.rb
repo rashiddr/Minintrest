@@ -1,0 +1,19 @@
+#
+# ApplicationHelper
+#
+# @author rashid
+#
+module ApplicationHelper
+  # For rendering devise views from any controller
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+end

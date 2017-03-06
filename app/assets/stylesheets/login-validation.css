@@ -1,0 +1,6 @@
+.form-error{
+  display: none;
+  text-align: right;
+  color: #de7070;
+  padding: 4px 15px 0px 24px;
+}

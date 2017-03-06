@@ -1,0 +1,63 @@
+<div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+    <div class="login-form">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="sign-in-htm">
+          <div class="group">
+            <label for="email" class="label">Email</label>
+            <%= f.email_field :email, autofocus: true, id: 'email', class: "input" %>
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <%= f.password_field :password, autocomplete: "off", id: "pass", class: "input" %>
+          </div>
+          <div class="group">
+            <%= f.check_box :remember_me, class: "check", id: "check", checked: true %>
+            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+          </div>
+          <div class="group">
+            <%= f.submit "Sign In", class: 'button' %>
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <%= link_to "Forgot Password?", new_password_path(resource_name), id: "forgot-password" %>
+          </div>
+        </div>
+      <% end %>
+        <div class="sign-up-htm">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="group">
+              <label for="user" class="label">Name</label>
+              <%= f.text_field :name, id: 'name', class: 'input' %>
+              <div class="form-error" id="name-error">Please fill out your name</div>
+            </div>
+            <div class="group">
+              <label for="email-field" class="label">Email Address</label>
+              <%= f.email_field :email, id: 'email-field', class: 'input' %>
+              <div class="form-error" id="email-error">Please fill out your email</div>
+              <div class="form-error" id="invalid-email-error">Please enter a valid email address</div>
+            </div>
+            <div class="group">
+              <label for="pass_field" class="label">Password</label>
+              <%= f.password_field :password, autocomplete: "off", id: "pass_field", data: { type: 'password' }, class: 'input' %>
+              <div class="form-error" id="pass-error">Please enter a password with atleast 8 characters</div>
+            </div>
+            <div class="group">
+              <label for="conf_pass" class="label">Repeat Password</label>
+              <%= f.password_field :password_confirmation, autocomplete: "off", id: "conf_pass", data: { type: 'password' }, class: 'input' %>
+              <div class="form-error" id="conf_pass_error">Password and confirm password doesn't match</div>
+            </div>
+            <div class="group">
+              <%= f.submit "Sign up", class: 'button', id:'sign-up', onclick: 'validateRegistration(event);' %>
+            </div>
+            <div class="hr"></div>
+            <div class="foot-lnk">
+              <label for="tab-1">Already Member?</a>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
